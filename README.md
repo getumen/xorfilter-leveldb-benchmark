@@ -5,7 +5,7 @@ Recently xor filter [Xor Filters: Faster and Smaller Than Bloom and Cuckoo Filte
 
 ## benchmark results
 ### settings
-- key num: 1G
+- key num: 1M
 - false positive rate: about 0.3%
 - block cache off
 - others: default values https://godoc.org/github.com/syndtr/goleveldb/leveldb/opt#pkg-variables
