@@ -11,7 +11,7 @@ Recently xor filter [Xor Filters: Faster and Smaller Than Bloom and Cuckoo Filte
 - others: default values https://godoc.org/github.com/syndtr/goleveldb/leveldb/opt#pkg-variables
 
 ### results
-TODO: benchmark test by fixed filter bit size
+TODO: benchmark test by filter bit size
 
 ```
 go test -benchmem -cpuprofile -run='^$' github.com/getumen/xorfilter-leveldb-benchmark -bench .                                                                                                                                                                                                                                                           (git)-[master]
