@@ -75,8 +75,11 @@ func BenchmarkBloomFilterLevelDBGetRandom1M(b *testing.B) {
 	// 8bits bloom filter offers a 0.3% false-positive probability
 	filter := filter.NewBloomFilter(8)
 	db := newDB(b, &opt.Options{
-		Filter: filter,
+		Filter:             filter,
+		BlockCacher:        opt.NoCacher,
+		BlockCacheCapacity: -1,
 	})
+	defer db.Close()
 
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 
@@ -96,8 +99,11 @@ func BenchmarkXorFilterLevelDBGetRandom1M(b *testing.B) {
 	// 8bits bloom filter offers a 0.3% false-positive probability
 	filter := xor8.NewXorFilter()
 	db := newDB(b, &opt.Options{
-		Filter: filter,
+		Filter:             filter,
+		BlockCacher:        opt.NoCacher,
+		BlockCacheCapacity: -1,
 	})
+	defer db.Close()
 
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 
@@ -117,8 +123,11 @@ func BenchmarkBloomFilterLevelDBGetSequence1M(b *testing.B) {
 	// 8bits bloom filter offers a 0.3% false-positive probability
 	filter := filter.NewBloomFilter(8)
 	db := newDB(b, &opt.Options{
-		Filter: filter,
+		Filter:             filter,
+		BlockCacher:        opt.NoCacher,
+		BlockCacheCapacity: -1,
 	})
+	defer db.Close()
 
 	g := newSeqKeyGenerator()
 
@@ -139,8 +148,11 @@ func BenchmarkXorFilterLevelDBGetSequence1M(b *testing.B) {
 	// 8bits bloom filter offers a 0.3% false-positive probability
 	filter := xor8.NewXorFilter()
 	db := newDB(b, &opt.Options{
-		Filter: filter,
+		Filter:             filter,
+		BlockCacher:        opt.NoCacher,
+		BlockCacheCapacity: -1,
 	})
+	defer db.Close()
 
 	g := newSeqKeyGenerator()
 
